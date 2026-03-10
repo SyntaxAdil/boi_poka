@@ -17,8 +17,10 @@ export default function RootLayout({ children }) {
     <html lang="en" data-theme="light">
       <body className={`${geistSans.variable} antialiased `}>
         <Navbar />
+        <main className="my-4 space-y-10 md:space-y-20 max-w-6xl mx-auto">
 
         {children}
+        </main>
       </body>
     </html>
   );
