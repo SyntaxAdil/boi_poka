@@ -3,7 +3,19 @@ const nextConfig = {
   /* config options here */
   reactCompiler: true,
   // to remove dev indicators from the ui bottom-- optional
-  devIndicators:false 
+  devIndicators:false ,
+  images: {
+  remotePatterns: [
+    {
+      protocol: 'https',
+      hostname: 'i.ibb.co.com',
+    },
+    {
+      protocol: 'https',
+      hostname: 'i.ibb.co', 
+    },
+  ],
+},
 };
 
 export default nextConfig;
