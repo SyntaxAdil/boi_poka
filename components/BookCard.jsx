@@ -1,15 +1,17 @@
 import React from "react";
 import Image from "next/image";
 import { CiStar } from "react-icons/ci";
+import Link from "next/link";
 
 const BookCard = ({ book }) => {
   return (
-    <div className="transition-all duration-150 group border border-base-300 hover:border-success  bg-white p-6 rounded-md space-y-4">
+    <Link href={`/books/${book.bookId}`} className="transition-all duration-150 group border border-base-300 hover:border-success  bg-white p-6 rounded-md space-y-4">
       <div className="rounded-2xl bg-[#f3f3f3] flex items-center justify-center  overflow-hidden aspect-video relative p-10">
         <Image
           src={book.image}
           alt={book.bookName}
          fill
+         sizes="300"
           className="object-contain group-hover:scale-110 transition-all duration-150 p-5"
           placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgo..."
@@ -37,7 +39,7 @@ const BookCard = ({ book }) => {
           <CiStar />
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 
