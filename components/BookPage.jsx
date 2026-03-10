@@ -1,6 +1,12 @@
+import { useWishList } from "@/context/WishList";
 import Image from "next/image";
 
-export default function BookDetail({ book }) {
+export default function BookDetail({ book  }) {
+
+  const {addToWishList,wishList} =useWishList()
+
+  const exitInWishList=wishList.find(i=>i.bookId===book.bookId);
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 items-center bg-base-100 shadow-xl max-w-4xl w-full gap-10 p-10 mx-auto  space-y-5">
       <figure className="bg-base-200 px-10 py-12  flex items-center justify-center h-full">
@@ -67,7 +73,9 @@ export default function BookDetail({ book }) {
 
         <div className="card-actions">
           <button className="btn btn-outline btn-sm px-6">Read</button>
-          <button className="btn btn-accent btn-sm px-6">Wishlist</button>
+          <button className="btn btn-accent btn-sm px-6" disabled={exitInWishList} onClick={()=>addToWishList(book)} >
+            {exitInWishList ? "Wishlisted":"Wishlist"}
+          </button>
         </div>
       </div>
     </div>

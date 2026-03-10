@@ -4,11 +4,25 @@ import bookData from "@/public/data/booksData.json";
 
 import BookCard from "@/components/listed-books/BookCard";
 import SortBy from "./../../components/listed-books/SortBy";
+import { useWishList } from "@/context/WishList";
 
 const AllBookList = () => {
+  const { wishList, dltWish } = useWishList();
   const [selectOption, setSelectOption] = useState("Sort By");
 
-  const sortData= [...bookData].sort((a,b)=>selectOption === "Rating" ? b.rating - a.rating : selectOption === "Number of pages" ? b.totalPages - a.totalPages : selectOption === "Publisher year" ? b.yearOfPublishing - a.yearOfPublishing : b-a);
+  const sortByFn = (data) => {
+    const sortData = [...data].sort((a, b) =>
+      selectOption === "Rating"
+        ? b.rating - a.rating
+        : selectOption === "Number of pages"
+          ? b.totalPages - a.totalPages
+          : selectOption === "Publisher year"
+            ? b.yearOfPublishing - a.yearOfPublishing
+            : b - a,
+    );
+
+    return sortData;
+  };
 
   return (
     <section>
@@ -18,7 +32,7 @@ const AllBookList = () => {
 
       {/* sort by */}
       <div className="my-8 text-center">
-        <SortBy  selectOption={selectOption} setSelectOption={setSelectOption} />
+        <SortBy selectOption={selectOption} setSelectOption={setSelectOption} />
       </div>
 
       {/* tab */}
@@ -28,7 +42,7 @@ const AllBookList = () => {
           Read Books
         </label>
         <div className="tab-content bg-base-100 border-base-300 p-6 space-y-5">
-          {sortData.map((book) => (
+          {sortByFn(bookData).map((book) => (
             <BookCard book={book} key={book.bookId} />
           ))}
         </div>
@@ -38,7 +52,18 @@ const AllBookList = () => {
           WishList
         </label>
         <div className="tab-content bg-base-100 border-base-300 p-6">
-          Tab content 2
+          {wishList.length===0?
+          <p className="text-center">Make a wish to read a book</p>
+          :(
+            sortByFn(wishList).map((book) => (
+            <BookCard
+              book={book}
+              key={book.bookId}
+              dltWish={dltWish}
+              dltEnable
+            />
+          ))
+          )}
         </div>
       </div>
     </section>

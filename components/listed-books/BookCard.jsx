@@ -3,9 +3,12 @@ import Link from "next/link";
 import { CiCalendar, CiUser, CiFileOn } from "react-icons/ci";
 import { IoPricetagOutline } from "react-icons/io5";
 
-export default function BookCard({ book }) {
+export default function BookCard({ book ,dltEnable=false,dltWish}) {
   return (
-    <div className="card card-side bg-base-100 shadow-sm border border-base-200 p-4 gap-4 items-center">
+    <div className="card card-side bg-base-100 shadow-sm border border-base-200 p-4 gap-4 items-center relative">
+      {dltEnable && <button onClick={()=>dltWish(book)} className="absolute right-4 top-3 cursor-pointer hover:text-red-400">
+        X
+      </button>}
       <figure className="bg-base-200 rounded-xl p-3 min-w-fit">
         <Image
           src={book.image}
