@@ -12,11 +12,13 @@ const geistSans = Geist({
 export const metadata = {
   title: "Boi Poka",
   description: "A platform for boi poka's",
+  
 };
 import WishListProvider from "@/context/WishList";
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
+    <link rel="icon" href="/app/favicon.ico" sizes="any" />
       <body
         className={`${geistSans.variable} antialiased  flex flex-col min-h-screen `}
       >
