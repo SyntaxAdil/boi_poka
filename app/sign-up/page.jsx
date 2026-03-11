@@ -44,6 +44,7 @@ const SignUp = () => {
           </h4>
         </div>
       </fieldset>
+      <p className="fixed  md:top-30 md:right-10 badge badge-success px-5 py-4 rounded-full text-white animate-pulse">Authentication is under construction</p>
     </div>
   );
 };

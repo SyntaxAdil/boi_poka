@@ -1,10 +1,10 @@
 import React from "react";
-import Link  from 'next/link';
+import Link from "next/link";
 
 const SignIn = () => {
   return (
     <div className="min-h-[50dvh] w-full flex items-center justify-center p-4 mt-10 md:mt-0">
-      <fieldset className="fieldset bg-white p-6 w-full md:max-w-md shadow rounded-2xl" >
+      <fieldset className="fieldset bg-white p-6 w-full md:max-w-md shadow rounded-2xl">
         <h1 className="text-2xl mb-4 font-bold uppercase ">
           Welcome <span className="text-success">Back</span>
         </h1>
@@ -29,7 +29,10 @@ const SignIn = () => {
             </label>
           </div>
 
-          <Link href={"/forget-password"} className="link link-hover underline text-success ">
+          <Link
+            href={"/forget-password"}
+            className="link link-hover underline text-success "
+          >
             Forgot password?
           </Link>
         </div>
@@ -67,15 +70,16 @@ const SignIn = () => {
           Signin with Google
         </button>
 
-
         <div className="text-center py-2">
-            <h4>Don&apos;t have an account? 
-                <Link href="/sign-up" className="text-success ms-2 underline">
-                Sign Up
-                </Link>
-            </h4>
+          <h4>
+            Don&apos;t have an account?
+            <Link href="/sign-up" className="text-success ms-2 underline">
+              Sign Up
+            </Link>
+          </h4>
         </div>
       </fieldset>
+      <p className="fixed top-30 right-10 badge badge-success px-5 py-4 rounded-full text-white animate-pulse">Authentication is under construction</p>
     </div>
   );
 };

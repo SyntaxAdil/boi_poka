@@ -26,7 +26,7 @@ const colors = [
 
 const data = [];
 
-[...bookData].map((i) =>
+[...bookData].slice(0,9).map((i) =>
   data.push({
     name: i.bookName,
     totalPages: i.totalPages,

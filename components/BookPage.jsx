@@ -1,13 +1,24 @@
-"use client"
+"use client";
 import { useWishList } from "@/context/WishList";
 import Image from "next/image";
+import { toast } from "react-toastify";
 
-export default function BookDetail({ book  }) {
+export default function BookDetail({ book }) {
+  const { addToWishList, wishList } = useWishList();
 
-  const {addToWishList,wishList} =useWishList()
-
-  const exitInWishList=wishList.find(i=>i.bookId===book.bookId);
-
+  const exitInWishList = wishList.find((i) => i.bookId === book.bookId);
+  const handleRead = () => {
+    toast.error("Sign In to read a book !", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 items-center bg-base-100 shadow-xl max-w-4xl w-full gap-10 p-10 mx-auto  space-y-5">
       <figure className="bg-base-200 px-10 py-12  flex items-center justify-center h-full">
@@ -73,9 +84,15 @@ export default function BookDetail({ book  }) {
         <div className="divider my-4" />
 
         <div className="card-actions">
-          <button className="btn btn-outline btn-sm px-6">Read</button>
-          <button className="btn btn-accent btn-sm px-6" disabled={exitInWishList} onClick={()=>addToWishList(book)} >
-            {exitInWishList ? "Wishlisted":"Wishlist"}
+          <button className="btn btn-outline btn-sm px-6" onClick={handleRead}>
+            Read
+          </button>
+          <button
+            className="btn btn-accent btn-sm px-6"
+            disabled={exitInWishList}
+            onClick={() => addToWishList(book)}
+          >
+            {exitInWishList ? "Wishlisted" : "Wishlist"}
           </button>
         </div>
       </div>
