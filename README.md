@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Boi Poka
 
-## Getting Started
+**Boi Poka** is a book-reading platform where users can explore and read books online.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* **Next.js (React)**
+* **Tailwind CSS**
+* **DaisyUI**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Current Status
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+> ⚠️ Authentication and the book reading feature are currently under development and will be integrated soon.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* This version does **not use a database**.
+* It is a **basic preview version** of the platform.
 
-## Learn More
+## Upcoming Updates
 
-To learn more about Next.js, take a look at the following resources:
+The next version will include:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* User **Authentication System**
+* **Database Integration**
+* **More Books**
+* Improved **reading experience**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Author
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Abdur Rahman Adil**
