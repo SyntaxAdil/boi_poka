@@ -65,6 +65,7 @@ const Navbar = () => {
               return (
                 <li key={i.link}>
                   <Link
+                    onClick={() => setOpenMenu((p) => !p)}
                     className={`border ${isActive ? "border-success text-success" : "border-transparent text-black"} hover:border-success hover:text-success transition-all duration-150 cursor-pointer px-4 py-2 rounded-sm  `}
                     href={i.href}
                   >

@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       >
         <WishListProvider>
           <Navbar />
-          <main className="my-15 md:my-30  space-y-10 md:space-y-20 max-w-6xl mx-auto flex-1 w-full">
+          <main className="my-20 md:my-30  space-y-10 md:space-y-20 max-w-6xl mx-auto flex-1 w-full">
             {children}
           </main>
           <Footer />
