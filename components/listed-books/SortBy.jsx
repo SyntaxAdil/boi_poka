@@ -1,6 +1,6 @@
 
 
-const SortBy = ({selectOption,setSelectOption}) => {
+const SortBy = ({setSelectOption}) => {
   
 
 
@@ -18,6 +18,7 @@ const SortBy = ({selectOption,setSelectOption}) => {
         >
           Sort By
         </option>
+        
         <option onClick={(e) => setSelectOption(e.target.value)}>Rating</option>
         <option onClick={(e) => setSelectOption(e.target.value)}>
           Number of pages
@@ -25,6 +26,7 @@ const SortBy = ({selectOption,setSelectOption}) => {
         <option onClick={(e) => setSelectOption(e.target.value)}>
           Publisher year
         </option>
+        
       </select>
     </div>
   );
