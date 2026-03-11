@@ -1,3 +1,4 @@
+"use client"
 import { useWishList } from "@/context/WishList";
 import Image from "next/image";
 

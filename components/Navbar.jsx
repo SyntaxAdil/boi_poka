@@ -18,10 +18,10 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center gap-4  mx-auto px-4 md:px-10 py-6 justify-between shadow mb-6 fixed  top-0 left-0 right-0 bg-base-100 z-10">
+    <nav className="flex items-center gap-4  mx-auto px-4 md:px-10 py-6 justify-between shadow mb-6 fixed  top-0 left-0 right-0 bg-base-300 z-10">
       <Link href={"/"}>
         <h2 className="text-3xl font-bold ">
-          Book <span className="text-success">Vibe</span>{" "}
+          Boi <span className="text-success">Poka</span>{" "}
         </h2>
       </Link>
       <ul className="hidden md:flex items-center gap-8 ">
@@ -40,8 +40,12 @@ const Navbar = () => {
         })}
       </ul>
       <div className="hidden md:flex gap-4 items-center ">
-        <Buttons content={"Sign In"} />
-        <Buttons content={"Sign Up"} extraClass={"btn-accent!"} />
+        <Link href="/sign-in">
+          <Buttons content={"Sign In"} />
+        </Link>
+        <Link href={"/sign-up"}>
+          <Buttons content={"Sign Up"} extraClass={"btn-accent!"} />
+        </Link>
       </div>
 
       {/* mobile navigation */}
@@ -54,7 +58,7 @@ const Navbar = () => {
       </button>
 
       {openMenu && (
-        <div className="block md:hidden fixed top-18 left-0 right-0 p-6 shadow-md backdrop-blur-2xl bg-white/30" >
+        <div className="block md:hidden fixed top-18 left-0 right-0 p-6 shadow-md backdrop-blur-2xl bg-white/60">
           <ul className="flex flex-col items-center gap-8 mb-6 ">
             {NAV_LINKS.map((i) => {
               const isActive = pathname === i.href;
@@ -71,8 +75,12 @@ const Navbar = () => {
             })}
           </ul>
           <div className="flex gap-4 items-center justify-center ">
-            <Buttons content={"Sign In"} />
-            <Buttons content={"Sign Up"} extraClass={"btn-accent!"} />
+            <Link href="/sign-in">
+              <Buttons content={"Sign In"} />
+            </Link>
+            <Link href={"/sign-up"}>
+              <Buttons content={"Sign Up"} extraClass={"btn-accent!"} />
+            </Link>
           </div>
         </div>
       )}

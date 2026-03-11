@@ -1,9 +1,11 @@
-import React from 'react'
-
+import React from "react";
+import CustomShapeBarChart from "@/components/charts/Chart";
 const PagesToRead = () => {
   return (
-    <div>PagesToRead</div>
-  )
-}
+    <section className="w-full flex items-center justify-center p-5 bg-[#f8f8f8] rounded-md">
+      <CustomShapeBarChart />;
+    </section>
+  );
+};
 
-export default PagesToRead
+export default PagesToRead;

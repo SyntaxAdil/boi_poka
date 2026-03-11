@@ -1,11 +1,8 @@
-"use client";
 import data from "@/public/data/booksData.json";
 import BookPage from "@/components/BookPage";
-import { useParams } from "next/navigation";
-import { useState } from "react";
 
-const SingleBookPage = () => {
-  const { id } = useParams();
+const SingleBookPage = async ({ params }) => {
+  const { id } = await params;
 
   if (!id) return;
   const bookData = data.find((i) => i.bookId == id);

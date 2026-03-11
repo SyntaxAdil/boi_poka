@@ -2,6 +2,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import Navbar from "./../components/Navbar";
 import Footer from "./../components/Footer";
+  import { ToastContainer } from 'react-toastify';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,10 +22,11 @@ export default function RootLayout({ children }) {
       >
         <WishListProvider>
           <Navbar />
-          <main className="my-30  space-y-10 md:space-y-20 max-w-6xl mx-auto flex-1 w-full">
+          <main className="my-15 md:my-30  space-y-10 md:space-y-20 max-w-6xl mx-auto flex-1 w-full">
             {children}
           </main>
           <Footer />
+          <ToastContainer />
         </WishListProvider>
       </body>
     </html>
