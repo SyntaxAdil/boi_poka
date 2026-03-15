@@ -1,4 +1,4 @@
-# 📚 Boi Poka
+#  Boi Tori
 
 A modern book discovery and reading platform built with Next.js. Browse curated books, manage your wishlist, and track your reading progress — all in one place.
 
@@ -34,8 +34,8 @@ A modern book discovery and reading platform built with Next.js. Browse curated 
 
 ## 🚀 Getting Started
 ```bash
-git clone https://github.com/your-username/boi-poka
-cd boi-poka
+git clone https://github.com/your-username/boi-tori
+cd boi-tori
 pnpm install
 pnpm dev
 ```
