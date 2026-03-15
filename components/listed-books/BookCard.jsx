@@ -1,72 +1,91 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CiCalendar, CiUser, CiFileOn } from "react-icons/ci";
-import { IoPricetagOutline } from "react-icons/io5";
 
-export default function BookCard({ book ,dltEnable=false,dltWish}) {
+export default function BookCard({ book, dltEnable = false, dltWish }) {
   return (
-    <div className="card card-side bg-base-100 shadow-sm border border-base-200 p-4 gap-4 items-center relative">
-      {dltEnable && <button onClick={()=>dltWish(book)} className="absolute right-4 top-3 cursor-pointer hover:text-red-400">
-        X
-      </button>}
-      <figure className="bg-base-200 rounded-xl p-3 min-w-fit">
+    <div className="group relative flex flex-col sm:flex-row bg-base-100 border border-base-200 hover:border-success/30 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-success/5">
+      
+      {dltEnable && (
+        <button
+          onClick={() => dltWish(book)}
+          className="absolute right-3 top-3 z-10 w-7 h-7 rounded-full bg-base-200 hover:bg-red-500/10 hover:text-red-400 text-base-content/40 flex items-center justify-center transition-all duration-200 text-xs font-bold"
+        >
+          ✕
+        </button>
+      )}
+
+      {/* Cover */}
+      <div className="relative bg-success/5 flex items-center justify-center p-6 sm:min-w-36 sm:w-36 shrink-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-success/10 to-transparent" />
         <Image
           src={book.image}
           alt={book.bookName}
           width={80}
-          height={172}
-          className="object-contain rounded-lg"
+          height={112}
+          className="relative z-10 rounded-lg shadow-md object-contain"
         />
-      </figure>
+      </div>
 
-      <div className="flex flex-col gap-3 flex-1">
+      {/* Content */}
+      <div className="flex flex-col gap-3 p-4 flex-1 min-w-0">
+
+        {/* Title + author */}
         <div>
-          <h2 className="text-lg font-bold">{book.bookName}</h2>
-          <p className="text-sm text-base-content/60">By : {book.author}</p>
+          <h2 className="font-bold text-base leading-tight truncate pr-6">
+            {book.bookName}
+          </h2>
+          <p className="text-xs text-base-content/50 mt-0.5 flex items-center gap-1">
+            <CiUser className="shrink-0" />
+            {book.author}
+          </p>
         </div>
 
-        <div className="flex items-center gap-3 flex-wrap text-sm">
-          <span className="font-semibold">Tag</span>
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5">
           {book.tags?.map((tag) => (
             <span
               key={tag}
-              className="badge badge-outline text-success border-success/40 bg-success/10 font-semibold"
+              className="text-xs badge badge-outline border-success/30 text-success bg-success/5 font-medium px-2 py-0.5"
             >
               #{tag}
             </span>
           ))}
-          <span className="flex items-center gap-1 text-base-content/60">
-            <CiCalendar className="text-base" />
-            Year of Publishing: {book.yearOfPublishing}
-          </span>
         </div>
 
-        <div className="flex items-center gap-4 text-sm text-base-content/60 flex-wrap">
+        {/* Meta */}
+        <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-base-content/50">
           <span className="flex items-center gap-1">
-            <CiUser className="text-base" />
-            Publisher: {book.publisher}
+            <CiCalendar />
+            {book.yearOfPublishing}
           </span>
           <span className="flex items-center gap-1">
-            <CiFileOn className="text-base" />
-            Page {book.totalPages}
+            <CiFileOn />
+            {book.totalPages} pages
+          </span>
+          <span className="flex items-center gap-1">
+            <CiUser />
+            {book.publisher}
           </span>
         </div>
 
         <div className="divider my-0" />
 
-        <div className="flex items-center gap-3 flex-wrap">
-          <span className="badge badge-info badge-soft rounded-full text-base-content/70 px-4 py-3">
-            Category: {book.category}
+        {/* Footer */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="badge badge-soft badge-info text-xs rounded-full px-3 py-2.5">
+            {book.category}
           </span>
-          <span className="badge bg-amber-100 text-amber-600 border-none px-4 py-3 font-semibold">
-            Rating: {book.rating}
+          <span className="badge bg-amber-100 text-amber-600 border-none text-xs font-semibold px-3 py-2.5">
+            ⭐ {book.rating}
           </span>
-          <Link href={`/books/${book.bookId}`}>
-            <button className="btn btn-success btn-sm text-white px-5">
+          <Link href={`/books/${book.bookId}`} className="ml-auto">
+            <button className="btn btn-success btn-sm text-white px-5 rounded-xl">
               View Details
             </button>
           </Link>
         </div>
+
       </div>
     </div>
   );
