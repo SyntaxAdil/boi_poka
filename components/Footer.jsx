@@ -13,7 +13,7 @@ const Footer = () => {
 
         <div className="space-y-3">
           <h2 className="text-2xl font-bold">
-            Boi <span className="text-success">Poka</span>
+            Boi <span className="text-success">Tori</span>
           </h2>
           <p className="text-sm text-neutral-content/60 leading-relaxed max-w-xs">
             Your personal book tracker. Discover reads, build your wishlist, and never lose track of your next book.
@@ -57,7 +57,7 @@ const Footer = () => {
       <div className="border-t border-neutral-content/10">
         <div className="max-w-6xl mx-auto px-6 md:px-10 py-5 flex flex-col md:flex-row items-center justify-between gap-2">
           <p className="text-xs text-neutral-content/40">
-            © {new Date().getFullYear()} Boi Poka. All rights reserved.
+            © {new Date().getFullYear()} Boi tori. All rights reserved.
           </p>
           <p className="text-xs text-neutral-content/40">
             Made with ♥ by <span className="text-success font-medium">Abdur Rahman Adil</span>
