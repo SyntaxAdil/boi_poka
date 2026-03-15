@@ -3,7 +3,9 @@
 const SortBy = ({setSelectOption}) => {
   
 
-
+// const duplicateCheck=()=>{
+  
+// }
 
 
   return (

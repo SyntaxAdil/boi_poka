@@ -4,14 +4,28 @@ import bookData from "@/public/data/booksData.json";
 import BookCard from "@/components/listed-books/BookCard";
 import SortBy from "./../../components/listed-books/SortBy";
 import { useWishList } from "@/context/WishList";
+import FilterCategory from "@/components/listed-books/FilterCategory";
 
 const AllBookList = () => {
   const { wishList, dltWish } = useWishList();
   const [selectOption, setSelectOption] = useState("Sort By");
+  const [filterOption, setFilterOption] = useState("Classic");
   const [mounted, setMounted] = useState(false);
 
+  const [category, setCategory] = useState([]);
   useEffect(() => {
-    setMounted(true);
+    const arra=[]
+    for (let categoryItem of bookData) {
+     if(!arra.includes(categoryItem.category)){
+      arra.push(categoryItem.category)
+     }
+    }
+
+    setTimeout(()=>setCategory(arra),0)
+  }, []);
+  
+  useEffect(() => {
+    setTimeout(() => setMounted(true), 0);
   }, []);
 
   const sortByFn = (data) => {
@@ -26,9 +40,16 @@ const AllBookList = () => {
     );
   };
 
+  
+  const filtered=(data)=>{
+    return data.filter(i=>i.category===filterOption )
+
+  }
+
+  
+
   return (
     <section>
-
       <div className="bg-base-200 border border-base-300 rounded-2xl py-14 px-6 text-center mb-10 space-y-3">
         <span className="text-xs font-medium text-success bg-success/10 px-3 py-1 rounded-full">
           Your reading space
@@ -46,6 +67,12 @@ const AllBookList = () => {
           {bookData.length} books available
         </p>
         <SortBy selectOption={selectOption} setSelectOption={setSelectOption} />
+        <div>
+          <FilterCategory
+            BookCard={category}
+            setFilterOption={setFilterOption}
+          />
+        </div>
       </div>
 
       <div className="tabs tabs-lift">
@@ -58,7 +85,7 @@ const AllBookList = () => {
         </label>
         <div className="tab-content bg-base-100 border-base-300 p-6">
           <div className="grid grid-cols-1 gap-4">
-            {sortByFn(bookData).map((book) => (
+            {sortByFn(filtered(bookData)).map((book) => (
               <BookCard book={book} key={book.bookId} />
             ))}
           </div>
@@ -77,12 +104,16 @@ const AllBookList = () => {
           {!mounted ? null : wishList.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20 gap-3">
               <span className="text-5xl">📚</span>
-              <p className="text-base-content/50 text-sm">Your wishlist is empty</p>
-              <p className="text-base-content/30 text-xs">Add books from the list above</p>
+              <p className="text-base-content/50 text-sm">
+                Your wishlist is empty
+              </p>
+              <p className="text-base-content/30 text-xs">
+                Add books from the list above
+              </p>
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-4">
-              {sortByFn(wishList).map((book) => (
+              {sortByFn(filtered(wishList)).map((book) => (
                 <BookCard
                   book={book}
                   key={book.bookId}
@@ -94,7 +125,6 @@ const AllBookList = () => {
           )}
         </div>
       </div>
-
     </section>
   );
 };
