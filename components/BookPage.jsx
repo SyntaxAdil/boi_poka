@@ -10,20 +10,23 @@ export default function BookDetail({ book }) {
   const handleRead = () => {
     alert("First Sign In");
   };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 bg-base-100 border border-base-200 rounded-2xl overflow-hidden max-w-4xl w-full mx-auto shadow-sm">
-      <figure className="bg-success/5 flex items-center justify-center p-10 min-h-[400px] relative">
-        <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-br from-success/10 to-transparent pointer-events-none" />
-        <Image
-          src={book.image}
-          alt={book.bookName}
-          width={200}
-          height={280}
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACf/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AJQAB/9k="
-          className="rounded-xl shadow-xl relative z-10 object-contain"
-        />
-      </figure>
+      <div className="bg-success/5 flex items-center justify-center p-10 min-h-[400px] relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-success/10 to-transparent pointer-events-none hover-3d" />
+        <figure className="max-w-100 rounded-2xl">
+          <Image
+            src={book.image}
+            alt={book.bookName}
+            width={200}
+            height={280}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACf/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AJQAB/9k="
+            className="rounded-xl shadow-xl relative z-10 object-contain"
+          />
+        </figure>
+      </div>
 
       <div className="flex flex-col gap-5 p-8 md:p-10 overflow-y-auto">
         <div>
@@ -86,10 +89,10 @@ export default function BookDetail({ book }) {
               target="_blank"
               className={`flex-1 btn btn-sm rounded-xl border border-base-300 bg-base-100 hover:bg-base-200 text-base-content font-medium transition-all `}
             >
-               Read →
+              Read →
             </a>
           )}
-       
+
           <button
             className={`flex-1 btn btn-sm rounded-xl font-medium transition-all ${
               exitInWishList
