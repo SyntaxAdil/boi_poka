@@ -81,7 +81,7 @@ const SignInPage = () => {
 
         <div className="flex items-center justify-between my-4">
           <div className="flex items-center gap-2">
-            <input type="checkbox" id="remember-me" className="checkbox checkbox-success checkbox-sm" />
+            <input type="checkbox" id="remember-me"  />
             <label className="label text-base-content/70 text-sm cursor-pointer" htmlFor="remember-me">
               Remember Me
             </label>
