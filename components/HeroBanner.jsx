@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const HeroBanner = () => {
   return (
-    <div className="flex flex-col md:flex-row items-stretch bg-base-100 border border-base-200 rounded-2xl overflow-hidden min-h-90 py-5  ">
+    <div className="flex flex-col md:flex-row items-stretch bg-base-100 border border-base-200 rounded-2xl overflow-hidden min-h-90 py-5">
       
       {/* Left — Text */}
       <div className="flex-1 flex flex-col justify-center gap-6 px-8 md:px-14 py-6 md:py-12">
@@ -17,15 +17,15 @@ const HeroBanner = () => {
 
         {/* Heading */}
         <h1 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
-          Books to{" "}
-          <span className="text-success">freshen up</span>
+          Your next great{" "}
+          <span className="text-success">read</span>
           <br />
-          your bookshelf
+          starts here
         </h1>
 
         {/* Subtext */}
         <p className="text-base-content/60 text-[15px] leading-relaxed max-w-sm">
-          Discover handpicked reads  from timeless classics to modern thrillers. Track what you've read and what's next.
+          Explore a handpicked collection of books — from timeless classics to modern favorites. Track what you've read and discover what's next.
         </p>
 
         {/* CTA */}
@@ -34,13 +34,13 @@ const HeroBanner = () => {
             href="/listed-books"
             className="bg-success text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-success/90 transition-colors duration-150"
           >
-            View the List
+            Browse Books
           </Link>
           <Link
             href="/pages-to-read"
             className="text-base-content/50 text-sm hover:text-base-content transition-colors duration-150 flex items-center gap-1"
           >
-            Pages to Read <span>→</span>
+            Reading List <span>→</span>
           </Link>
         </div>
       </div>
@@ -49,9 +49,9 @@ const HeroBanner = () => {
       <div className="relative w-full md:w-95 min-h-65 bg-success/10 shrink-0 overflow-hidden rounded-4xl">
         <Image
           src={HERO_IMAGE}
-          alt="Books"
+          alt="BoiTori — Your reading companion"
           fill
-          className="object-cover object-center  rounded-4xl opacity-90"
+          className="object-cover object-center rounded-4xl opacity-90"
           priority
         />
       </div>

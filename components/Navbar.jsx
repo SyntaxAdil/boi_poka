@@ -7,13 +7,12 @@ import { usePathname } from "next/navigation";
 import { CiMenuFries } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
 import Buttons from "./Buttons";
-import ThemeToggle from "@/components/ThemeToggle"
+import ThemeToggle from "@/components/ThemeToggle";
 const NAV_LINKS = [
   { link: "Home", href: "/" },
   { link: "Listed Books", href: "/listed-books" },
   { link: "Pages to Read", href: "/pages-to-read" },
 ];
-
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -24,9 +23,8 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-base-100 border-b border-base-200 px-4 md:px-10 h-16 flex items-center justify-between shadow-sm">
-
       <Link href="/" className="text-2xl font-bold tracking-tight">
-        Boi <span className="text-success">Poka</span>
+        Boi <span className="text-success">Tori</span>
       </Link>
 
       <ul className="hidden md:flex items-center gap-1">
@@ -63,8 +61,12 @@ const Navbar = () => {
         ) : (
           <div className="flex items-center gap-3 bg-base-200 border border-base-300 rounded-full pl-4 pr-1.5 py-1.5">
             <div className="flex flex-col leading-tight">
-              <span className="text-[10px] text-base-content/40 uppercase tracking-widest">Welcome back</span>
-              <span className="text-[13px] font-medium text-base-content">{name}</span>
+              <span className="text-[10px] text-base-content/40 uppercase tracking-widest">
+                Welcome back
+              </span>
+              <span className="text-[13px] font-medium text-base-content">
+                {name}
+              </span>
             </div>
             <UserButton afterSignOutUrl="/" />
           </div>
@@ -106,10 +108,10 @@ const Navbar = () => {
 
           {!isSignedIn ? (
             <div className="flex gap-3">
-              <Link href="/sign-in"  onClick={()=>setOpenMenu(p=>!p)}>
+              <Link href="/sign-in" onClick={() => setOpenMenu((p) => !p)}>
                 <Buttons content="Sign In" />
               </Link>
-              <Link href="/sign-up"  onClick={()=>setOpenMenu(p=>!p)} >
+              <Link href="/sign-up" onClick={() => setOpenMenu((p) => !p)}>
                 <Buttons content="Sign Up" extraClass="btn-accent!" />
               </Link>
             </div>
@@ -119,7 +121,9 @@ const Navbar = () => {
                 {initials}
               </div>
               <div className="flex flex-col leading-tight flex-1">
-                <span className="text-[10px] text-base-content/40 uppercase tracking-widest">Signed in as</span>
+                <span className="text-[10px] text-base-content/40 uppercase tracking-widest">
+                  Signed in as
+                </span>
                 <span className="text-sm font-medium">{name}</span>
               </div>
               <UserButton afterSignOutUrl="/" />

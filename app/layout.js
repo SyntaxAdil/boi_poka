@@ -18,8 +18,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: "Boi Poka",
-  description: "Lets Read your thirst.",
+  title: "BoiTori | পুরনো বই, নতুন গল্প",
+  description: "BoiTori — পুরনো বইয়ের নতুন ঠিকানা। বই দাও, বই নাও, পড়ার আনন্দ ছড়াও।",
 };
 
 export default function RootLayout({ children }) {
