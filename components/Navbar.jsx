@@ -106,10 +106,10 @@ const Navbar = () => {
 
           {!isSignedIn ? (
             <div className="flex gap-3">
-              <Link href="/sign-in" className="flex-1">
+              <Link href="/sign-in"  onClick={()=>setOpenMenu(p=>!p)}>
                 <Buttons content="Sign In" />
               </Link>
-              <Link href="/sign-up" className="flex-1">
+              <Link href="/sign-up"  onClick={()=>setOpenMenu(p=>!p)} >
                 <Buttons content="Sign Up" extraClass="btn-accent!" />
               </Link>
             </div>
