@@ -188,8 +188,9 @@ const SignUpPage = () => {
         <div className="divider text-base-content/40 text-xs">OR</div>
 
         <button
+         data-tip="This is feauture is currently unavailable."
           onClick={handleGoogleSignUp}
-          className="btn btn-outline w-full border-base-300 text-base-content hover:bg-base-200 hover:border-base-300 hover:text-base-content"
+          className="btn btn-outline w-full border-base-300 text-base-content hover:bg-base-200 hover:border-base-300 hover:text-base-content tooltip"
         >
           <svg
             aria-label="Google logo"

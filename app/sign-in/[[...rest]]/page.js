@@ -111,9 +111,11 @@ const SignInPage = () => {
 
         <div className="divider text-base-content/40 text-xs">OR</div>
 
-        <button
+        <button 
+        data-tip="This is feauture is currently unavailable."
           onClick={handleGoogleSignIn}
-          className="btn btn-outline w-full border-base-300 text-base-content hover:bg-base-200 hover:border-base-300 hover:text-base-content"
+          
+          className="btn btn-outline w-full border-base-300 text-base-content hover:bg-base-200 hover:border-base-300 hover:text-base-content tooltip "
         >
           <svg
             aria-label="Google logo"
@@ -140,6 +142,7 @@ const SignInPage = () => {
           </Link>
         </div>
       </fieldset>
+      
     </div>
   );
 };
