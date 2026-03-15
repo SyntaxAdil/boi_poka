@@ -1,11 +1,22 @@
 "use client";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast, Slide } from "react-toastify";
 const WishListContext = createContext(null);
 export const useWishList = () => useContext(WishListContext);
 
 const WishList = ({ children }) => {
-  const [wishList, setWishList] = useState([]);
+  const [wishList,setWishList]=useState([])
+  useEffect(() => {
+  try {
+    const store = localStorage.getItem("wishList");
+    if (store) setTimeout(()=>setWishList(JSON.parse(store)),0);
+  } catch (error) {
+    console.log(error);
+  }
+}, []);
+  useEffect(() => {
+    localStorage.setItem("wishList", JSON.stringify(wishList));
+  }, [wishList]);
 
   const addToWishList = (book) => {
     if (!book) return;
@@ -15,7 +26,7 @@ const WishList = ({ children }) => {
 
       return [...prev, book];
     });
-    toast.success("Add to wishlist successfully!", {
+    toast.success("Check your wishlist on Listed Books page!", {
       position: "top-right",
       autoClose: 1000,
       hideProgressBar: false,

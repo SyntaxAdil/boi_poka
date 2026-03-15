@@ -1,29 +1,49 @@
-# Boi Poka
+# 📚 Boi Poka
 
-**Boi Poka** is a book-reading platform where users can explore and read books online.
+A modern book discovery and reading platform built with Next.js. Browse curated books, manage your wishlist, and track your reading progress — all in one place.
 
-## Tech Stack
+## ✨ Features
 
-* **Next.js (React)**
-* **Tailwind CSS**
-* **DaisyUI**
+- 🔍 Browse a curated collection of Bengali & English books
+- ❤️ Wishlist your favourite reads
+- 📊 Track pages to read with visual charts
+- 🌗 Light & Dark mode
+- 🔐 User authentication (Clerk)
+- 📱 Fully responsive design
 
-## Current Status
+## 🛠️ Tech Stack
 
-> ⚠️ Authentication and the book reading feature are currently under development and will be integrated soon.
+| Technology | Purpose |
+|---|---|
+| Next.js 16 | Framework |
+| Tailwind CSS v4 | Styling |
+| DaisyUI v5 | UI Components |
+| Clerk | Authentication |
+| Recharts | Data Visualization |
 
-* This version does **not use a database**.
-* It is a **basic preview version** of the platform.
+## 📸 Screenshots
 
-## Upcoming Updates
+### Home
+![Home](public/screenshots/home.png)
 
-The next version will include:
+### All Books
+![All Books](public/screenshots/bookPage.png)
 
-* User **Authentication System**
-* **Database Integration**
-* **More Books**
-* Improved **reading experience**
+### Pages to Read
+![Pages to Read](public/screenshots/pageToReadChart.png)
 
-## Author
+## 🚀 Getting Started
+```bash
+git clone https://github.com/your-username/boi-poka
+cd boi-poka
+pnpm install
+pnpm dev
+```
+
+## ⚠️ Note
+
+> This is a preview version. No database is used — book data is served from a local JSON file.
+
+## 👨‍💻 Author
 
 **Abdur Rahman Adil**

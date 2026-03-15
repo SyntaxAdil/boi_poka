@@ -1,35 +1,46 @@
-import { Geist } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
-import Navbar from "./../components/Navbar";
-import Footer from "./../components/Footer";
-  import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import WishListProvider from "@/context/WishList";
+import { Playfair_Display, DM_Sans } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const playfair = Playfair_Display({
   subsets: ["latin"],
+  variable: "--font-heading",
+  weight: ["400", "500", "600", "700"],
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-body",
 });
 
 export const metadata = {
   title: "Boi Poka",
-  description: "A platform for boi poka's",
-  
+  description: "Lets Read your thirst.",
 };
-import WishListProvider from "@/context/WishList";
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="light">
-    <link rel="icon" href="/app/favicon.ico" sizes="any" />
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body
-        className={`${geistSans.variable} antialiased  flex flex-col min-h-screen `}
+        className={`${playfair.variable} ${dmSans.variable} font-[family-name:var(--font-body)] antialiased`}
       >
-        <WishListProvider>
-          <Navbar />
-          <main className="my-20 md:my-30  space-y-10 md:space-y-20 max-w-6xl mx-auto flex-1 w-full">
-            {children}
-          </main>
-          <Footer />
-          <ToastContainer />
-        </WishListProvider>
+        <ClerkProvider>
+          <WishListProvider>
+            <Navbar />
+            <main className="my-20 md:my-30 space-y-10 md:space-y-20 max-w-6xl mx-auto flex-1 w-full px-4">
+              {children}
+            </main>
+            <Footer />
+            <ToastContainer position="top-right" autoClose={1500} theme="colored" />
+          </WishListProvider>
+        </ClerkProvider>
       </body>
     </html>
   );

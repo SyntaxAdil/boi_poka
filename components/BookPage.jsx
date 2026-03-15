@@ -1,98 +1,105 @@
 "use client";
 import { useWishList } from "@/context/WishList";
+import { useUser } from "@clerk/nextjs";
 import Image from "next/image";
-import { toast } from "react-toastify";
 
 export default function BookDetail({ book }) {
   const { addToWishList, wishList } = useWishList();
-
+  const { isSignedIn } = useUser();
   const exitInWishList = wishList.find((i) => i.bookId === book.bookId);
   const handleRead = () => {
-    toast.error("Sign In to read a book !", {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    alert("First Sign In");
   };
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 items-center bg-base-100 shadow-xl max-w-4xl w-full gap-10 p-10 mx-auto  space-y-5">
-      <figure className="bg-base-200 px-10 py-12  flex items-center justify-center h-full">
+    <div className="grid grid-cols-1 md:grid-cols-2 bg-base-100 border border-base-200 rounded-2xl overflow-hidden max-w-4xl w-full mx-auto shadow-sm">
+      <figure className="bg-success/5 flex items-center justify-center p-10 min-h-[400px] relative">
+        <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-br from-success/10 to-transparent pointer-events-none" />
         <Image
           src={book.image}
           alt={book.bookName}
-          width={445}
-          height={564}
+          width={200}
+          height={280}
           placeholder="blur"
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACf/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AJQAB/9k="
-          className="rounded-lg shadow-2xl "
+          className="rounded-xl shadow-xl relative z-10 object-contain"
         />
       </figure>
 
-      <div className="gap-3 space-y-4">
-        <div className="space-y-2">
-          <h2 className="card-title text-2xl font-bold">{book.bookName}</h2>
-          <p className="text-sm text-base-content/60">By : {book.author}</p>
-
-          <p className="text-base-content/70 italic">{book.category}</p>
+      <div className="flex flex-col gap-5 p-8 md:p-10 overflow-y-auto">
+        <div>
+          <span className="text-xs font-medium text-success bg-success/10 px-3 py-1 rounded-full">
+            {book.category}
+          </span>
+          <h2 className="text-2xl font-semibold mt-3 tracking-tight">
+            {book.bookName}
+          </h2>
+          <p className="text-sm text-base-content/50 mt-1">By {book.author}</p>
         </div>
 
-        <div className="divider my-4" />
-
-        <p className="text-sm text-base-content/70 leading-relaxed">
-          <span className="font-bold text-base-content">Review : </span>
-          {book.review}
-        </p>
-
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-sm font-semibold">Tag</span>
+        <div className="flex flex-wrap gap-2">
           {book.tags.map((tag) => (
             <span
               key={tag}
-              className="badge badge-outline text-success border-success/40 bg-success/10 font-semibold"
+              className="text-xs border border-success/30 text-success bg-success/5 px-2.5 py-1 rounded-full font-medium"
             >
-              {tag}
+              #{tag}
             </span>
           ))}
         </div>
 
-        <div className="divider my-0" />
+        <p className="text-sm text-base-content/60 leading-relaxed border-l-2 border-success/30 pl-3">
+          {book.review}
+        </p>
 
-        <div className="space-y-3 text-sm">
-          <div className="flex gap-2">
-            <span className="text-base-content/50">Number of Pages:</span>
-            <span className="font-bold">{book.totalPages}</span>
-          </div>
-          <div className="flex gap-2">
-            <span className="text-base-content/50">Publisher:</span>
-            <span className="font-bold">{book.publisher}</span>
-          </div>
-          <div className="flex gap-2">
-            <span className="text-base-content/50">Year of Publishing:</span>
-            <span className="font-bold">{book.yearOfPublishing}</span>
-          </div>
-          <div className="flex gap-2">
-            <span className="text-base-content/50">Rating:</span>
-            <span className="font-bold">{book.rating}</span>
-          </div>
+        <div className="grid grid-cols-2 gap-3">
+          {[
+            { label: "Pages", value: book.totalPages },
+            { label: "Rating", value: `⭐ ${book.rating}` },
+            { label: "Publisher", value: book.publisher },
+            { label: "Year", value: book.yearOfPublishing },
+          ].map(({ label, value }) => (
+            <div key={label} className="bg-base-200 rounded-xl px-4 py-3">
+              <p className="text-[11px] text-base-content/40 uppercase tracking-widest mb-0.5">
+                {label}
+              </p>
+              <p className="text-sm font-medium text-base-content truncate">
+                {value}
+              </p>
+            </div>
+          ))}
         </div>
 
-        <div className="divider my-4" />
-
-        <div className="card-actions">
-          <button className="btn btn-outline btn-sm px-6" onClick={handleRead}>
-            Read
-          </button>
+        <div className="flex gap-3 pt-1">
+          {!isSignedIn ? (
+            <a
+              href={book.readLink}
+              onClick={() => handleRead}
+              target="_blank"
+              className={`flex-1 btn btn-sm rounded-xl border border-base-300 bg-base-100 hover:bg-base-200 text-base-content font-medium transition-all ${!isSignedIn ? "opacity-40 pointer-events-none" : ""}`}
+            >
+              Sign In to Read →
+            </a>
+          ) : (
+            <a
+              href={book.readLink}
+              onClick={() => handleRead}
+              target="_blank"
+              className={`flex-1 btn btn-sm rounded-xl border border-base-300 bg-base-100 hover:bg-base-200 text-base-content font-medium transition-all `}
+            >
+               Read →
+            </a>
+          )}
+       
           <button
-            className="btn btn-accent btn-sm px-6"
-            disabled={exitInWishList}
+            className={`flex-1 btn btn-sm rounded-xl font-medium transition-all ${
+              exitInWishList
+                ? "bg-success/10 text-success border border-success/30 cursor-default"
+                : "bg-success text-white hover:bg-success/90 border-none"
+            }`}
+            disabled={!!exitInWishList}
             onClick={() => addToWishList(book)}
           >
-            {exitInWishList ? "Wishlisted" : "Wishlist"}
+            {exitInWishList ? "✓ Wishlisted" : "Wishlist"}
           </button>
         </div>
       </div>

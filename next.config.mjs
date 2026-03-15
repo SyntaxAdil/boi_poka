@@ -18,6 +18,10 @@ const nextConfig = {
       protocol: 'https',
       hostname: 'covers.openlibrary.org', 
     },
+    {
+      protocol: 'https',
+      hostname: 'img.clerk.com', 
+    },
   ],
 },
 };

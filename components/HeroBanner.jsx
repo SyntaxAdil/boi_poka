@@ -1,22 +1,61 @@
-
-
 import HERO_IMAGE from "@/public/books.jpg";
 import Image from "next/image";
-import Buttons from "./Buttons";
-import  Link  from "next/link";
+import Link from "next/link";
 
 const HeroBanner = () => {
   return (
-    <div className=" flex flex-col md:flex-row items-center justify-between gap-15 md:gap-5  py-10 md:py-20 bg-[#f3f3f3] px-5 md:px-15 rounded">
-      <div>
-        <h3 className="text-5xl md:text-6xl font-semibold mb-10 leading-20">Books to freshen up your bookshelf</h3>
-        <Link href="/listed-books">
-          <Buttons content="View the List" extraClass={"w-fit"} />
-        </Link>
+    <div className="flex flex-col md:flex-row items-stretch bg-base-100 border border-base-200 rounded-2xl overflow-hidden min-h-90 py-5 ">
+      
+      {/* Left — Text */}
+      <div className="flex-1 flex flex-col justify-center gap-6 px-8 md:px-14 py-12">
+        
+        {/* Badge */}
+        <div className="flex items-center gap-2 bg-success/10 rounded-full px-3 py-1 w-fit">
+          <span className="w-1.5 h-1.5 rounded-full bg-success inline-block animate-pulse" />
+          <span className="text-xs font-medium text-success">100+ curated books</span>
+        </div>
+
+        {/* Heading */}
+        <h1 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
+          Books to{" "}
+          <span className="text-success">freshen up</span>
+          <br />
+          your bookshelf
+        </h1>
+
+        {/* Subtext */}
+        <p className="text-base-content/60 text-[15px] leading-relaxed max-w-sm">
+          Discover handpicked reads  from timeless classics to modern thrillers. Track what you've read and what's next.
+        </p>
+
+        {/* CTA */}
+        <div className="flex items-center gap-4 mt-2">
+          <Link
+            href="/listed-books"
+            className="bg-success text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-success/90 transition-colors duration-150"
+          >
+            View the List
+          </Link>
+          <Link
+            href="/pages-to-read"
+            className="text-base-content/50 text-sm hover:text-base-content transition-colors duration-150 flex items-center gap-1"
+          >
+            Pages to Read <span>→</span>
+          </Link>
+        </div>
       </div>
-      <div>
-        <Image src={HERO_IMAGE} alt="hero-image" className="rounded-2xl shadow" />
+
+      {/* Right — Image */}
+      <div className="relative w-full md:w-95 min-h-65 bg-success/10 shrink-0 overflow-hidden rounded-4xl">
+        <Image
+          src={HERO_IMAGE}
+          alt="Books"
+          fill
+          className="object-cover object-center  rounded-4xl opacity-90"
+          priority
+        />
       </div>
+
     </div>
   );
 };
