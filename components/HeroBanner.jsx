@@ -4,10 +4,10 @@ import Link from "next/link";
 
 const HeroBanner = () => {
   return (
-    <div className="flex flex-col md:flex-row items-stretch bg-base-100 border border-base-200 rounded-2xl overflow-hidden min-h-90 py-5 ">
+    <div className="flex flex-col md:flex-row items-stretch bg-base-100 border border-base-200 rounded-2xl overflow-hidden min-h-90 py-5  ">
       
       {/* Left — Text */}
-      <div className="flex-1 flex flex-col justify-center gap-6 px-8 md:px-14 py-12">
+      <div className="flex-1 flex flex-col justify-center gap-6 px-8 md:px-14 py-6 md:py-12">
         
         {/* Badge */}
         <div className="flex items-center gap-2 bg-success/10 rounded-full px-3 py-1 w-fit">

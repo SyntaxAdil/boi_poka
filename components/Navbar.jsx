@@ -23,7 +23,7 @@ const Navbar = () => {
   const initials = name.slice(0, 2).toUpperCase();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-base-100 border-b border-base-200 px-4 md:px-10 h-16 flex items-center justify-between shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-base-100 border-b border-base-200 px-4 md:px-10 h-16 flex items-center justify-between shadow-sm">
 
       <Link href="/" className="text-2xl font-bold tracking-tight">
         Boi <span className="text-success">Poka</span>

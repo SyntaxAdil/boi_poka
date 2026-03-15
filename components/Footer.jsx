@@ -8,7 +8,7 @@ const NAV_LINKS = [
 
 const Footer = () => {
   return (
-    <footer className="bg-base-900 bg-neutral text-neutral-content mt-10">
+    <footer className="bg-base-900 bg-neutral text-neutral-content mt-10 py-12">
       <div className="max-w-6xl mx-auto px-6 md:px-10 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
 
         <div className="space-y-3">
